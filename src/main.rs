@@ -37,7 +37,7 @@ fn b_to_dec (n: String, b: u8) -> u32 {
         let element = parts[i];
 
         println!("{:?}", element.parse::<u32>().unwrap());
-        result = result + (base.pow(counter) * element.parse::<u32>().unwrap() );
+        result += base.pow(counter) * element.parse::<u32>().unwrap();
 
         counter += 1;
     }
