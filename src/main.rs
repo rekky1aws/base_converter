@@ -77,15 +77,31 @@ fn dec_to_b (n: u32, b: u8) -> String {
 
 fn main() {
     stdout().flush().unwrap();
+    
+    let (mut in_base, mut out_base): (u8, u8);
+    let in_value: String;
 
-    simple_print("Source base [2, 255]:\t");
-    let in_base = read_u8();
+    loop {
+    	simple_print("Source base [2, 16]:\t");
+    	in_base = read_u8();
+
+    	if in_base >= 2 && in_base <= 16 {
+    		break;
+    	}
+    }
 
     simple_print("Source value [1, ∞[:\t");
-    let in_value = read_string();
+    in_value = read_string();
 
-    simple_print("Ouput base [2, 255]:\t");
-    let out_base = read_u8();
+    // Using only bases beetwen 
+    loop {
+    	simple_print("Ouput base [2, 16]:\t");
+    	out_base = read_u8();
+
+    	if in_base >= 2 && in_base <= 16 {
+    		break;
+    	}
+    }
 
     let number_dec = b_to_dec(in_value.clone(), in_base);
     let out_value = dec_to_b(number_dec, out_base);
